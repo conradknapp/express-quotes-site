@@ -1,0 +1,15 @@
+{
+  "name": "express-quotes-site",
+  "version": "1.0.0",
+  "description": "Site for sharing quotes",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "Conrad Knapp",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "mongoose": "^5.0.0"
+  }
+}
