@@ -1,0 +1,41 @@
+<div class="container">
+  <h1>Add Quote</h1>
+<div class="row">
+  <form action="/quotes" method="post" class="col s12">
+    <div class="row">
+      <div class="input-field">
+        <input type="text" name="title" id="">
+        <label for="title">Title</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field">
+        <select name="status" id="">
+          <option value="public" selected>Public</option>
+          <option value="private" selected>Private</option>
+          <option value="unpublished" selected>Unpublished</option>
+        </select>
+        <label for="status">Status</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <p>
+        <input type="checkbox" name="allowComments" class="filled-in" id="filled-in-box" checked="checked">
+        <label for="allowComments">Allow Comments</label>
+      </p>
+    </div>
+
+    <div class="row">
+      <div class="input-field">
+        <h5>Write your quote</h5>
+        <textarea name="body"></textarea>
+      </div>
+    </div>
+
+    <input type="submit" value="Save" class="btn">
+  </form>
+</div>
+</div>
+

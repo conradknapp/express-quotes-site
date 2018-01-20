@@ -1,0 +1,53 @@
+<nav class="grey darken-4">
+  <div class="container">
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo center">
+          <svg viewBox="0 0 100 155" width="55" height="55" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"  sodipodi:version="0.32" inkscape:version="0.48.4 r9939" version="1.0" sodipodi:docname="Quill_and_ink_transparent.svg" enable-background="new">
+            <metadata id="metadata7">
+              <rdf:RDF>
+                <cc:Work rdf:about="">
+                  <dc:format>image/svg+xml</dc:format>
+                  <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+                  <dc:title/>
+                </cc:Work>
+              </rdf:RDF>
+            </metadata>
+            <defs id="defs5">
+              <filter inkscape:collect="always" id="filter10314">
+                <feBlend inkscape:collect="always" mode="lighten" in2="BackgroundImage" id="feBlend10316"/>
+              </filter>
+            </defs>
+            <path id="quill-svg" style="fill:none;stroke:#1da8df;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" d="m 14.46825,148.1966 c -0.80556,-0.97064 -0.81159,-3.7449 -0.0222,-10.19864 1.40096,-11.45323 2.01385,-12.89372 6.76096,-15.89043 4.94216,-3.11985 5.63836,-4.20953 3.11165,-4.87028 -1.31238,-0.3432 -1.98875,-1.36576 -1.98875,-3.0067 0,-2.84728 1.59726,-3.70061 6.9268,-3.70061 4.6914,0 5.39348,-0.80481 12.17835,-13.96039 C 49.05539,81.79405 58.26079,68.4574 69.64738,55.69594 78.27697,46.02437 82.8419,41.59381 99.55826,26.66548 l 3.76743,-3.36446 -0.57365,3.36446 c -0.53588,3.14294 -0.36123,3.01105 2.65245,-2.00297 2.38852,-3.97391 4.93952,-6.462 9.82576,-9.58343 9.59768,-6.13122 18.09966,-10.80766 18.09966,-9.95557 0,1.34336 -18.16197,35.84159 -20.52093,38.97901 -1.61848,2.15258 -5.02842,4.19926 -11.38843,6.83545 -9.88995,4.09932 -13.02464,6.42857 -5.37683,3.99528 2.6324,-0.83755 6.10638,-1.93823 7.71996,-2.44596 3.55856,-1.11975 4.30221,-0.58972 2.48125,1.76848 -11.60403,15.02759 -24.76266,29.66606 -28.2811,31.46165 -3.35159,1.71043 -3.79048,2.23027 -2.31914,2.74691 3.00908,1.05659 -9.21598,9.31367 -22.56478,15.24076 -11.76081,5.222 -13.93322,6.82485 -9.25,6.82485 2.19048,0 2.5,0.43333 2.5,3.5 0,2.44444 -0.45238,3.5 -1.5,3.5 -2.73144,0 -1.55958,1.77504 2.89553,4.38591 5.33559,3.12686 6.51239,5.98126 7.302,17.71146 l 0.57874,8.59738 -3.26314,0.65262 c -1.79472,0.35895 -10.80178,0.65263 -20.01568,0.65263 -12.74056,0 -17.01757,-0.31932 -17.85913,-1.33334 z" inkscape:connector-curvature="0"/>
+      </svg>
+      </a>
+      <a href="#" data-activates="main-menu" class="button-collapse show-on-large"><i class="material-icons">reorder</i></a>
+
+      <ul class="right hide-on-small-only">
+        {{#if user}}
+          <li><a href="/dashboard">Welcome {{user.firstName}}</a></li>
+          <li><a href="/auth/logout">Logout</a></li>
+        {{else}}
+          <li><a href="/quotes"><i class="material-icons left">format_quote</i>All Quotes</a></li>
+        {{/if}}
+      </ul>
+
+      <ul class="side-nav" id="main-menu">
+        <li>
+          {{#if user}}
+          {{else}}
+          <li>
+            <a href="/auth/google" class="btn red darken-1">Login With Google</a>
+          </li>
+          {{/if}}
+          <li><a href="/quotes">All Quotes</a></li>
+        </li>
+        <li class="divider"></li>
+        {{#if user}}
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/quotes/my">My Quotes</a></li>
+        <li><a href="/auth/logout">Logout</a></li>
+        {{/if}}
+      </ul>
+    </div>
+  </div>
+</nav>
