@@ -27,10 +27,10 @@
       $('.button-collapse').sideNav();
       $('select').material_select();
     });
-
-    CKEDITOR.replace('body', {
-      plugins: 'wysiwygarea,toolbar,basicstyles,link'
-    });
+  
+    document.addEventListener('DOMContentLoaded', () => {
+      CKEDITOR.replace('body');
+    })
   </script>
 </body>
 </html>

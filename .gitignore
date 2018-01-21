@@ -1,5 +1,9 @@
+.gitignore
 node_modules
 variables.env.now
 variables.env
 *.log
 .DS_Store
+
+config
+keys.js

@@ -5,8 +5,11 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 const path = require('path');
+const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
 
 require('./models/User');
+require('./models/Quote');
 
 require('./config/passport')(passport);
 
@@ -23,7 +26,17 @@ mongoose.connect(keys.mongoURI)
 
 const app = express();
 
+app.use(bodyParser.urlencoded({ extended: false}));
+app.use(bodyParser.json());
+
+app.use(methodOverride('_method'));
+
+const { formatDate } = require('./helpers/utils');
+
 app.engine('handlebars', exphbs({
+  helpers: {
+    formatDate
+  },
   defaultLayout: 'main'
 }))
 app.use(express.static('public'))

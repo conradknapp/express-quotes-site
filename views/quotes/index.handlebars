@@ -1,3 +1,28 @@
-<div class="quotes container center">
-<h1 class="white-text">Quotes</h1>
+<div class="quotes">
+  <h1 class="white-text">Quotes</h1>
+  <div class="Cards">
+    {{#each quotes}}
+    <div onclick='location.href=`${document.origin}/quotes/show/{{id}}`' class="Card" style="background: url({{authorImage}}) center top / cover no-repeat">
+      <div class="Card-title">
+        <h2>{{author}}</h2>
+        <a href="/quotes/edit/{{id}}" class="edit">
+          <i class="material-icons">edit</i>
+        </a>
+      </div>
+      <div class="Card-text">
+        <h4>{{text}}</h4>
+      </div>
+      <div class="color-overlay"></div>
+      <div class="Card-info">
+        <ul class="Card-list">
+          <li class="comments"><i class="material-icons">account_box</i>{{user.firstName}}</li>
+          <li class="comments"><i class="material-icons">comment</i>{{comments.length}}</li>
+          <li class="comments"><i class="material-icons">schedule</i>{{formatDate dateCreated 'l'}}</li>
+        </ul>
+      </div>
+      </div>
+  {{else}}
+  </div>
+  <p>No quotes found</p>
+  {{/each}}
 </div>

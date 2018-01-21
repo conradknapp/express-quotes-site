@@ -1,1 +1,49 @@
-<h1>Edit Quote</h1>
+<div class="container">
+  <h1>Edit Quote</h1>
+<div class="row">
+  <form action="/quotes/{{quote.id}}?_method=PUT" method="post" class="col s12">
+    <input type="hidden" name="_method" value="PUT">
+    <div class="row">
+      <div class="input-field">
+        <input type="text" name="author" value={{quote.author}}>
+        <label for="author">Author</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field">
+        <input type="text" name="authorImage" value={{quote.authorImage}}>
+        <label for="authorImage">Author Image</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field">
+        <select name="status">
+          <option value="public" selected>Public</option>
+          <option value="private">Private</option>
+          <option value="unpublished" >Unpublished</option>
+        </select>
+        <label for="status">Status</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <p>
+        <input type="checkbox" name="allowComments" class="filled-in" id="filled-in-box" {{#if quote.allowComments}} checked="checked" {{/if}}>
+        <label for="filled-in-box">Allow Comments</label>
+      </p>
+    </div>
+
+    <div class="row">
+      <div class="input-field">
+        <h5>Write your quote</h5>
+        <textarea name="text">{{quote.text}}</textarea>
+      </div>
+    </div>
+
+    <input type="submit" value="Save" class="btn">
+  </form>
+</div>
+</div>
+
