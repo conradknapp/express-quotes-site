@@ -11,16 +11,20 @@ const methodOverride = require('method-override');
 require('./models/User');
 require('./models/Quote');
 
-require('./config/passport')(passport);
+const { configPassport } = require('./passportSetup');
+
+configPassport(passport);
+
+// require('./config/passport')(passport);
 
 const index = require('./routes/index');
 const auth = require('./routes/auth');
 const quotes = require('./routes/quotes');
 
-const keys = require('./config/keys');
+const { mongoURI } = require('./configKeys');
 
 mongoose.Promise = global.Promise;
-mongoose.connect(keys.mongoURI)
+mongoose.connect(mongoURI)
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error(err));
 
@@ -31,11 +35,12 @@ app.use(bodyParser.json());
 
 app.use(methodOverride('_method'));
 
-const { formatDate } = require('./helpers/utils');
+const { formatDate, editIcon } = require('./helpers/utils');
 
 app.engine('handlebars', exphbs({
   helpers: {
-    formatDate
+    formatDate,
+    editIcon
   },
   defaultLayout: 'main'
 }))

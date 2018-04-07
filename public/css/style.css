@@ -4,6 +4,13 @@ body {
   flex-direction: column;
 }
 
+a {
+  color: blue;
+}
+
+svg {
+  margin: 0.1em;
+}
 
 main {
   flex: 1 0 auto;
@@ -47,20 +54,16 @@ h1 {
 
 .hero-content .main-quote-1 {
   opacity: 0;
-  transform: translateY(-150px);
+  transform: translateX(-250px);
   animation: 2.5s fadeInUp ease-out forwards;
 }
 
 .hero-content .main-quote-2 {
   opacity: 0;
-  transform: translateY(120px);
+  transform: translateX(220px);
   animation: 4s fadeInUp 3.2s ease-in-out forwards;
-}
-
-.hero-content .main-quote-2 span {
-  font-size: 2.2rem;
-  color: white;
   font-weight: 300;
+  white-space: nowrap;
 }
 
 .hero-content .last {
@@ -94,7 +97,7 @@ h1 {
     opacity: 0.7;
   }
   100% {
-    transform: translateY(0);
+    transform: translateX(0);
     opacity: 1;
   }
 }
@@ -109,6 +112,14 @@ h1 {
 
 .quotes {
   background: #323c41;
+  min-height: 100vh;
+  text-align: center;
+  width: 100%;
+  padding: 2em 4em;
+}
+
+.quotes-light-gray {
+  background: #ccc;
   min-height: 100vh;
   text-align: center;
   width: 100%;
@@ -247,4 +258,45 @@ h1 {
 
 #delete-form {
   display: inline;
+}
+
+.hidden-container {
+  display: none;
+}
+
+
+@media (max-width: 600px) {
+  .hero-content {
+    display: none;
+  }
+
+  .hidden-container {
+    z-index: 10;
+    color: white;
+    display: flex;
+    opacity: 0.7;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .hidden-container h1 {
+    font-weight: 100;
+  }
+
+  .hidden-buttons {
+    margin-top: 2em;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .hidden-buttons > * {
+    margin: 0.5em;
+  }
+
+  svg {
+    height: 40px;
+    width: 40px;
+  }
 }

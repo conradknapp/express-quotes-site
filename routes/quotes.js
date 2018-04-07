@@ -7,6 +7,7 @@ const User = mongoose.model('users');
 
 router.get('/', (req, res) => {
   Quote.find({ status: 'public' })
+    .sort({date: 'desc'})
     .populate('user')
     .populate('comments.commentUser')
     .then(quotes => {
@@ -29,8 +30,19 @@ router.get('/show/:id', (req, res) => {
   })
 });
 
+router.get('/user/:userId', (req, res) => {
+  Quote.find({ user: req.params.userId, status: 'public' })
+    .populate('user')
+    .then(quotes => {
+      res.render('quotes/index', {
+        quotes
+      });
+    })
+});
+
 router.get('/author/:author', (req, res) => {
-  Quote.find({ author: req.params.author })
+  Quote.find({ author: req.params.author, status: 'public' })
+    .populate('user')
     .then(quotes => {
       res.render('quotes/index', {
         quotes
@@ -45,6 +57,11 @@ router.get('/add', ensureAuthenticated, (req, res) => {
 router.get('/edit/:id', ensureAuthenticated, (req, res) => {
   Quote.findOne({
     _id: req.params.id,
+  })
+  .then(quote => {
+    if (quote.user !== req.user.id) {
+      res.redirect('/quotes')
+    }
   })
   .then(quote => {
     res.render('quotes/edit', {
